@@ -2,6 +2,5 @@
 # bigrams includes both actual bigrams and skipgrams.
 [bigrams]
 "Same-finger Bigrams" = { function = "sfb?", input = "Bigram"}
-"Lateral-stretch Bigrams" = { function = "lsb?", input = "Bigram"}
 
 [trigrams]
