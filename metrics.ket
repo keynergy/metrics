@@ -1,3 +1,3 @@
-(def (sfb? a b)
+(define (sfb? a b)
      (= (finger a)
 	(finger b)))
