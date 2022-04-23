@@ -11,14 +11,29 @@
   (abs (- (. a :y) (. b :y))))
 
 (define (dist a b)
-  (sqrt (+ (square (xdist a b)) (square (ydist a b)))))
+    (sqrt (+ (square (xdist a b))
+	     (square (ydist a b)))))
+
+
+(define (dir a b)
+    (if (or (/= (hand a)
+		(hand b))
+	    (= (finger a)
+	       (finger b)))
+	'none
+	(let ((comparator
+		(if (= (hand a) 'left)
+		    > <)))
+	  (if (comparator (hand a) (hand b))
+	      'outward
+	      'inward))))
 
 ;; metrics
 (define (same-finger-repeat? a b)
-  (and (= (. a :x)
-	  (. b :x))
-       (= (. a :y)
-	  (. b :y))))
+    (and (= (. a :x)
+	    (. b :x))
+	 (= (. a :y)
+	    (. b :y))))
 
 (define (same-finger? a b)
   (and (= (finger a)
@@ -26,6 +41,22 @@
        (not (same-finger-repeat? a b))))
 
 (define (same-finger-distance a b)
-  (if (same-finger? a b)
-      (dist a b)
-    0))
+    (if (same-finger? a b)
+	(dist a b)
+	0))
+
+;; trigrams
+(define (alternate? a b c)
+    (and
+     (/= (hand a)
+	 (hand b))
+     (/= (hand b)
+	 (hand c))))
+
+(define (redirect? a b c)
+    (and
+     (= (hand a)
+	(hand b)
+	(hand c))
+     (/= (dir a b)
+	 (dir b c))))

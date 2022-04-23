@@ -1,10 +1,12 @@
 # Section headers refer to the *number* of arguments. This means that
 # bigrams includes both actual bigrams and skipgrams.
 [bigrams]
-"Same-finger Bigrams" = { function = "same-finger?", input = "Bigram" }
-"Same-finger Repeats" = { function = "same-finger-repeat?", input = "Bigram" }
-"Same-finger Skipgrams" = { function = "same-finger?", input = "Skipgram" }
-"Same-finger Bigram Distance" = { function = "same-finger-distance", input = "Bigram" }
-"Same-finger Skipgram Distance" = { function = "same-finger-distance", input = "Skipgram" }
+"sfb" = { function = "same-finger?", input = "Bigram" }
+"sfr" = { function = "same-finger-repeat?", input = "Bigram" }
+"sfs" = { function = "same-finger?", input = "Skipgram" }
+"sfb distance" = { function = "same-finger-distance", input = "Bigram" }
+"sfs distance" = { function = "same-finger-distance", input = "Skipgram" }
 
 [trigrams]
+"alternation" = { function = "alternate?", input = "Trigram" }
+"redirects" = { function = "redirect?", input = "Trigram" } 
